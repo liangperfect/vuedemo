@@ -2,8 +2,9 @@
 
   <div class="login_bg">
 
-    <h1>Fake Demo</h1>
-    <el-form :model='form' ref='form' :rules="rules" label-width="80px">
+    <el-form class="form-container b-p text_c" :model='form' ref='form' :rules="rules" label-position="left"
+      label-width="80px">
+      <h3 class="title">Fake Demo</h3>
       <el-form-item prop='userName' label="用户名:">
         <el-input v-model="form.userName"></el-input>
       </el-form-item>
@@ -59,6 +60,8 @@
             this.$confirm('是否确认提交', {
               confirmButtonText: '确定',
               cancelButtonText: '取消'
+            }).then(() => {
+              this.$router.push('/home')
             })
           } else {
 
@@ -75,7 +78,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   html,
   body {
     margin: 0;
@@ -89,6 +92,32 @@
   .login_bg {
 
     /* background-color: #42B983; */
-    width: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-container {
+
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    // margin: 0 auto;
+    width: 330px;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 12px #cac6c6;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 20%;
+  }
+
+  .title {
+
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
   }
 </style>
